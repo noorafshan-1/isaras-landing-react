@@ -4,17 +4,14 @@
 This project is a fully responsive, pixel-perfect conversion of the official **I Saras HTML landing page** into a modern React application.  
 All sections such as Navbar, Hero, Features, Pricing, FAQ, Footer, and Contact form are implemented exactly as in the original HTML design.
 
----
 
 ## Live Demo  
-**https://isaras-landing-react.vercel.app/**  
-*(Replace with your actual deployed link)*
+https://isaras-plum.vercel.app  
+
 
 ## GitHub Repository  
-**https://github.com/your-username/isaras-landing-react**  
-*(Replace with your actual repo link)*
+https://github.com/noorafshan-1/isaras-landing-react
 
----
 
 ## Tech Stack
 
@@ -26,7 +23,6 @@ All sections such as Navbar, Hero, Features, Pricing, FAQ, Footer, and Contact f
 - **Dark/Light Mode Support**
 - **React Hooks (useState, useEffect)**
 
----
 
 ## Folder Structure
 ```
@@ -44,8 +40,9 @@ isaras-landing-react/
 │   │   ├── FAQ.tsx
 │   │   └── Footer.tsx
 │   ├── hooks/
-│   │   ├── useDarkMode.ts    
-│   │   ├── useScrollLock.ts  
+│   │   ├── useHeaderOffset.ts    
+│   │   ├── useGlobalUI.ts
+         ---------
 │   │           
 │   ├── styles/
 │   │   └── index.css
@@ -60,27 +57,23 @@ isaras-landing-react/
 ##  Installation & Setup
 
 ###  Clone the repository
-```bash
+
 git clone https://github.com/noorafshan-1/isaras-landing-react.git
 cd isaras-landing-react
-```
 
 ###  Install dependencies
-```bash
+
 npm install
-```
+
 
 ###  Start the development server
-```bash
+
 npm run dev
-```
+
 
 ###  Build for production
-```bash
-npm run build
-```
 
----
+npm run build
 
 ##  Design Approach & Decisions
 
