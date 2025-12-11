@@ -46,38 +46,38 @@ const Testimonial = () => {
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
-  const testimonials = [
-    {
-      text: "I cleared both Prelims and Mains with ease. The AI mentor made my preparation structured and stress-free. A big thanks to I, Saras for being my constant guide!",
-      img: "/img-isaras/test-saranya.png",
-      name: "Saranya Nair",
-      role: "UPSC Aspirant",
-    },
-    {
-      text: "The cascading filters in Ask Saras are incredibly useful — it’s like having a personalized mentor who understands what I need instantly. Truly unique!",
-      img: "/img-isaras/test-muthu.png",
-      name: "Muthukumaran S",
-      role: "UPSC Aspirant",
-    },
-    {
-      text: "The application’s clean UI and smart navigation made learning seamless. I could focus on studying without distractions - a flawless experience.",
-      img: "/img-isaras/test-vinoth.png",
-      name: "Vinoth Kumar",
-      role: "UPSC Aspirant",
-    },
-    {
-      text: "The Current Affairs Analysis is a total game changer! I no longer waste hours collecting news. Saras summarizes everything with UPSC relevance.",
-      img: "/img-isaras/test-priya.png",
-      name: "Priya Sharma",
-      role: "UPSC Aspirant",
-    },
-    {
-      text: "The Mains Evaluation feature blew my mind. Instant AI feedback helped me improve my answer writing every single day — like having a personal evaluator!",
-      img: "/img-isaras/test-arjun.png",
-      name: "Arjun Mehta",
-      role: "UPSC Mains Candidate",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     text: "I cleared both Prelims and Mains with ease. The AI mentor made my preparation structured and stress-free. A big thanks to I, Saras for being my constant guide!",
+  //     img: "/img-isaras/test-saranya.png",
+  //     name: "Saranya Nair",
+  //     role: "UPSC Aspirant",
+  //   },
+  //   {
+  //     text: "The cascading filters in Ask Saras are incredibly useful — it’s like having a personalized mentor who understands what I need instantly. Truly unique!",
+  //     img: "/img-isaras/test-muthu.png",
+  //     name: "Muthukumaran S",
+  //     role: "UPSC Aspirant",
+  //   },
+  //   {
+  //     text: "The application’s clean UI and smart navigation made learning seamless. I could focus on studying without distractions - a flawless experience.",
+  //     img: "/img-isaras/test-vinoth.png",
+  //     name: "Vinoth Kumar",
+  //     role: "UPSC Aspirant",
+  //   },
+  //   {
+  //     text: "The Current Affairs Analysis is a total game changer! I no longer waste hours collecting news. Saras summarizes everything with UPSC relevance.",
+  //     img: "/img-isaras/test-priya.png",
+  //     name: "Priya Sharma",
+  //     role: "UPSC Aspirant",
+  //   },
+  //   {
+  //     text: "The Mains Evaluation feature blew my mind. Instant AI feedback helped me improve my answer writing every single day — like having a personal evaluator!",
+  //     img: "/img-isaras/test-arjun.png",
+  //     name: "Arjun Mehta",
+  //     role: "UPSC Mains Candidate",
+  //   },
+  // ];
 
   return (
     <>

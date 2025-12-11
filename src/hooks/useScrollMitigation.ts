@@ -2,11 +2,15 @@ import { useEffect } from "react";
 
 export const useScrollMitigation = () => {
   useEffect(() => {
-    let scrollTimer: NodeJS.Timeout | null = null;
+    // FIXED: NodeJS.Timeout → browser-safe type
+    let scrollTimer: ReturnType<typeof setTimeout> | null = null;
+
     const SCROLL_PAUSE_MS = 180;
 
     const parallaxEls = Array.from(
-      document.querySelectorAll<HTMLElement>(".parallax-effect, .rotate-anim, .rotate-mitigation")
+      document.querySelectorAll<HTMLElement>(
+        ".parallax-effect, .rotate-anim, .rotate-mitigation"
+      )
     );
 
     let ticking = false;
@@ -33,8 +37,9 @@ export const useScrollMitigation = () => {
 
     const onScroll = () => {
       onScrollStart();
+
       if (!ticking) {
-        window.requestAnimationFrame(rafHandler);
+        requestAnimationFrame(rafHandler);
         ticking = true;
       }
 
@@ -44,7 +49,6 @@ export const useScrollMitigation = () => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
-   
     document
       .querySelectorAll("figure[data-ns-animate] img, .rotate-anim")
       .forEach((img) => img.classList.add("rotate-mitigation"));

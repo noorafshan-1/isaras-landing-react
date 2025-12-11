@@ -3,13 +3,16 @@ import { useEffect } from "react";
 export const useHeaderOffset = () => {
   useEffect(() => {
     const HEADER_SELECTOR = "header";
-    const SIDEBAR_SELECTOR = "aside.sidebar";
-    const ANIM_MS = 300;
     const EXTRA_GAP = 12;
     const DEBOUNCE_MS = 120;
 
+    // ✔ Add type-safe property on window
+    const win = window as unknown as {
+      _headerTimeout?: ReturnType<typeof setTimeout>;
+    };
+
     function computeHeaderOffset() {
-      const hdr = document.querySelector(HEADER_SELECTOR) as HTMLElement;
+      const hdr = document.querySelector(HEADER_SELECTOR) as HTMLElement | null;
       if (!hdr) return 0;
 
       const cs = getComputedStyle(hdr);
@@ -32,26 +35,30 @@ export const useHeaderOffset = () => {
 
     window.addEventListener("load", applyHeaderVar);
     window.addEventListener("resize", () => {
-      clearTimeout((window as any)._headerTimeout);
-      (window as any)._headerTimeout = setTimeout(applyHeaderVar, DEBOUNCE_MS);
+      if (win._headerTimeout) clearTimeout(win._headerTimeout);
+      win._headerTimeout = setTimeout(applyHeaderVar, DEBOUNCE_MS);
     });
 
     applyHeaderVar();
 
-    const clickHandler = (ev: any) => {
-      const a = ev.target.closest('a[href^="#"]');
+    // FIXED: strict typing for event
+    const clickHandler = (ev: MouseEvent) => {
+      const target = ev.target as HTMLElement | null;
+      if (!target) return;
+
+      const a = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
       if (!a) return;
 
       const href = a.getAttribute("href");
       if (!href || href === "#") return;
 
       const id = href.slice(1);
-      const target = document.getElementById(id);
+      const section = document.getElementById(id);
 
       ev.preventDefault();
-      if (!target) return;
+      if (!section) return;
 
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
 
       if (history.pushState) history.pushState(null, "", "#" + id);
       else window.location.hash = id;
