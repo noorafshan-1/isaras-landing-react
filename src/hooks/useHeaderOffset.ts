@@ -6,7 +6,7 @@ export const useHeaderOffset = () => {
     const EXTRA_GAP = 12;
     const DEBOUNCE_MS = 120;
 
-    // ✔ Add type-safe property on window
+   
     const win = window as unknown as {
       _headerTimeout?: ReturnType<typeof setTimeout>;
     };
@@ -41,7 +41,7 @@ export const useHeaderOffset = () => {
 
     applyHeaderVar();
 
-    // FIXED: strict typing for event
+   
     const clickHandler = (ev: MouseEvent) => {
       const target = ev.target as HTMLElement | null;
       if (!target) return;

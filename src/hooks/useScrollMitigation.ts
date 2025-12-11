@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export const useScrollMitigation = () => {
   useEffect(() => {
-    // FIXED: NodeJS.Timeout → browser-safe type
+    
     let scrollTimer: ReturnType<typeof setTimeout> | null = null;
 
     const SCROLL_PAUSE_MS = 180;

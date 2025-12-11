@@ -29,7 +29,7 @@ export const useGsapAnimations = () => {
       if (SplitText && !gsap.core.plugins.SplitText) gsap.registerPlugin(SplitText);
       if (MotionPathPlugin && !gsap.core.plugins.MotionPathPlugin) gsap.registerPlugin(MotionPathPlugin);
     } catch (e) {
-      // ignore if already registered
+      
     }
 
     
