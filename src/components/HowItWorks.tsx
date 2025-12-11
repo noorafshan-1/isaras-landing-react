@@ -2,32 +2,34 @@ import { useEffect } from "react";
 
 const HowItWorks = () => {
   useEffect(() => {
-    const cards = document.querySelectorAll(".js-stack-cards__item");
+ 
+    const cards = document.querySelectorAll<HTMLElement>(".js-stack-cards__item");
+  
     let ticking = false;
-
+  
     const update = () => {
       const scrollTop = window.scrollY;
-
+  
       cards.forEach((card, index) => {
         const offset = scrollTop * 0.04;
         card.style.transform = `translateY(${offset * index}px)`;
       });
-
+  
       ticking = false;
     };
-
+  
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(update);
         ticking = true;
       }
     };
-
+  
     window.addEventListener("scroll", onScroll);
-
+  
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+  
   return (
     <section
       id="hiw"
